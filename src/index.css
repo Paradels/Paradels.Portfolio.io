@@ -1,93 +1,91 @@
-/* ==== RESET CSS ==== */
-*, *::before, *::after {
+/* Reset CSS básico y moderno */
+
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-html, body {
-  height: 100%;
-  font-family: sans-serif;
-  line-height: 1.5;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizeLegibility;
-  background-color: #fff;
-  color: #000;
-}
-
-/* Remove list styles on ul, ol elements */
-ul, ol {
-  list-style: none;
-  padding: 0;
+/* Eliminar márgenes por defecto */
+body,
+h1, h2, h3, h4, h5, h6,
+p,
+ul, ol,
+figure,
+blockquote,
+dl, dd {
   margin: 0;
 }
 
-/* Remove default styles from headings */
-h1, h2, h3, h4, h5, h6 {
-  font-size: inherit;
-  font-weight: inherit;
+/* Eliminar list-style por defecto para listas */
+ul, ol {
+  list-style: none;
 }
 
-/* Reset links */
+/* Eliminar decoración de enlaces */
 a {
   text-decoration: none;
   color: inherit;
 }
 
-/* Reset buttons */
-button, input, select, textarea {
-  font-family: inherit;
-  font-size: inherit;
-  border: none;
-  background: none;
-  color: inherit;
-  outline: none;
+/* Establecer altura base y familia de fuente */
+html, body {
+  height: 100%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #fff;
+  color: #333;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.5;
 }
 
-/* Make images easier to work with */
-img, picture, video, canvas, svg {
-  display: block;
+/* Mejorar legibilidad para párrafos y texto */
+p {
+  line-height: 1.6;
+  color: #555;
+}
+
+/* Imágenes responsive */
+img,
+picture {
   max-width: 100%;
+  display: block;
 }
 
-/* Remove animations/transitions for people who prefer reduced motion */
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
+/* Tablas básicas */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 
-/* ==== ESTILOS GLOBALES ==== */
-body {
-  font-family: 'Roboto', sans-serif;
-  background-color: #f5f5f5;
-  color: #222;
+/* Inputs y botones sin estilos */
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  background: none;
+  border: none;
+  outline: none;
+  color: inherit;
 }
 
-main, ul, li, h1, h2, h3, h4, h5, h6 {
-  margin: 0;
-  padding: 0;
-}
-.skills-exp-wrapper {
-  display: flex;
-  flex-direction: column; 
+/* Cursor pointer en botones */
+button {
+  cursor: pointer;
 }
 
-/* A partir de 900px, se colocan en fila */
-@media (min-width: 900px) {
-  .skills-exp-wrapper {
-    flex-direction: row;
-    justify-content: space-between;
-
-  }
-
-  .skills-exp-wrapper > * {
-    flex: 1; /* que ambos ocupen el mismo espacio */
-  }
+/* Enlaces al pasar el cursor */
+a:hover {
+  text-decoration: underline;
 }
 
-
+/* Evitar selección de texto en botones */
+button, a {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}

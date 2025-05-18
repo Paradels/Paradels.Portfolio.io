@@ -1,22 +1,15 @@
 import Header from "./components/Header";
-import Aboutme from "./components/Aboutme";
-import Skills from "./components/Skills";
-import Footer from "./components/footer";
-import Exp from "./components/Exp";
+import MainContent from "./components/MainContent";
+import Footer from "./components/Footer";
 
 function App() {
   return (
     <>
       <Header />
-      <main>
-        <Aboutme />
-        <section className="skills-exp-wrapper">
-          <Skills />
-          <Exp />
-        </section>
-      </main>
+      <MainContent />
       <Footer />
     </>
   );
 }
+
 export default App;

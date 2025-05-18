@@ -1,29 +1,94 @@
 .header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: grey;
-    color: white;
-    padding: 1em 5em;
-    height: 8em;
-  }
-  .perfil {
-   border-radius: 50%;
-    width: 7em;
-    height: 7em;  }
+  background: #f7df1e;
+  color: #000;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  padding: 1.5rem 1rem;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 1024px;
+  margin: 0 auto;
+  gap: 1.5rem;
+}
+
+.perfil {
+  border-radius: 50%;
+  width: 7rem;
+  height: 7rem;
+  border: 3px solid #000;
+  object-fit: cover;
+}
+
+.textAndSocial {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0;
+  color: #222;
+}
+
+.subTitle {
+  font-size: 1.25rem;
+  margin: 0;
+  color: #444;
+}
 
 .socialLinks {
-      display: flex;
-      gap: 0.75rem;
-    }
-    
-    .socialIcon {
-      color: #333;
-      transition: transform 0.2s ease, color 0.2s ease;
-    }
-    
-    .socialIcon:hover {
-      transform: scale(1.2);
-      color: #0077b5; /* azul LinkedIn, puedes variar según el icono */
-    }
-    
+  display: flex;
+  gap: 1rem;
+}
+
+.socialIcon {
+  color: #000;
+  transition: transform 0.2s ease, color 0.2s ease;
+  cursor: pointer;
+}
+
+.socialIcon:hover {
+  transform: scale(1.2);
+  color: #333;
+}
+
+@media (min-width: 768px) {
+  .container {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    gap: 2rem;
+  }
+
+  .perfil {
+    width: 9rem;
+    height: 9rem;
+  }
+
+  .textAndSocial {
+    flex: 1;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .title {
+    font-size: 2.5rem;
+  }
+
+  .subTitle {
+    font-size: 1.5rem;
+  }
+
+  .socialLinks {
+    gap: 1.5rem;
+  }
+}

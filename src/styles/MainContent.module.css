@@ -1,0 +1,90 @@
+.main {
+  background: white;
+  padding: 2rem 1rem;
+  color: #222;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.aboutMe {
+  margin-bottom: 2rem;
+  text-align: justify;
+  border-bottom: 3px solid #f7df1e; /* Amarillo JS */
+  padding-bottom: 1rem;
+  color: #333;
+}
+
+.aboutMe h2 {
+  text-align: center;
+  color: #f7df1e;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.skills-exp-wrapper {
+  display: grid;
+  grid-template-columns: 1fr; /* 1 columna móvil */
+  gap: 2rem;
+  background-color: #222; /* fondo oscuro */
+  padding: 1.5rem;
+  border-radius: 8px;
+  color: white;
+  margin-bottom: 2rem;
+}
+
+@media (min-width: 768px) {
+  .skills-exp-wrapper {
+    grid-template-columns: 1fr 1fr; /* lado a lado en pantallas grandes */
+  }
+}
+
+.skills, .exp {
+  background-color: #333; /* fondo gris oscuro */
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+
+.skills h2, .exp h2 {
+  color: #f7df1e;
+  text-align: center;
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+}
+
+.skills ul, .exp ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.skills li, .exp li {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #eee;
+  margin-bottom: 0.5rem;
+}
+
+.skills li strong, .exp li strong {
+  color: #f7df1e;
+}
+
+.company {
+  background-color: #f7df1e;
+  color: #222;
+  padding: 2rem 1rem;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.company h2 {
+  margin-bottom: 1rem;
+  font-size: 2rem;
+}
+
+.company p {
+  max-width: 700px;
+  margin: 0 auto;
+  font-size: 1.1rem;
+  line-height: 1.5;
+}

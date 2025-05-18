@@ -1,0 +1,9 @@
+.footer {
+  text-align: center;
+  padding: 1rem 0;
+  background-color: #f7df1e; /* amarillo JS */
+  color: #222; /* texto oscuro para buen contraste */
+  font-weight: 600;
+  font-size: 0.9rem;
+
+}
