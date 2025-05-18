@@ -1,0 +1,29 @@
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: grey;
+    color: white;
+    padding: 1em 5em;
+    height: 8em;
+  }
+  .perfil {
+   border-radius: 50%;
+    width: 7em;
+    height: 7em;  }
+
+.socialLinks {
+      display: flex;
+      gap: 0.75rem;
+    }
+    
+    .socialIcon {
+      color: #333;
+      transition: transform 0.2s ease, color 0.2s ease;
+    }
+    
+    .socialIcon:hover {
+      transform: scale(1.2);
+      color: #0077b5; /* azul LinkedIn, puedes variar según el icono */
+    }
+    
