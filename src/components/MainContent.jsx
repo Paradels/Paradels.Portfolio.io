@@ -53,7 +53,9 @@ export default function MainContent() {
           empleé Node.js y Express para el backend, incluyendo autenticación y validación 
           por token de email. Utilicé Docker para la contenerización y MongoDB como base 
           de datos. En el frontend, construí la aplicación con Vite y React, integrando un CMS 
-          basado en Strapi para gestionar el contenido dinámicamente.
+          basado en Strapi para gestionar el contenido dinámicamente. Además de usar Figma para hacer
+          la página pixel perfect, también trabajé con Git y GitHub para el control de versiones y la
+           colaboración en equipo.
         </p>
       </section>
     </main>
