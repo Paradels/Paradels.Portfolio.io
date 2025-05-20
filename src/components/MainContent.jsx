@@ -80,7 +80,9 @@ export default function MainContent({ refs }) {
       </section>
 
       {/* CONTACTO */}
-      <ContactForm />
+        <div ref={refs.ContactForm}>
+        <ContactForm />
+      </div>
     </main>
   );
 }

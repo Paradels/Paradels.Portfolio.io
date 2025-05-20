@@ -38,6 +38,7 @@ function Header({ scrollTo }) {
         <button onClick={() => scrollTo("skills")}>Habilidades</button>
         <button onClick={() => scrollTo("exp")}>Experiencia</button>
         <button onClick={() => scrollTo("company")}>Empresa</button>
+        <button onClick={() => scrollTo("ContactForm")}>Contáctame</button>
       </nav>
     </header>
   );
