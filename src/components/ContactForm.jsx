@@ -10,14 +10,34 @@ export default function ContactForm() {
     email: "",
     message: "",
   });
+  const [errors, setErrors] = useState({});
   const [status, setStatus] = useState(null);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
+
+    // Opcional: limpiar error al escribir
+    setErrors((prev) => ({ ...prev, [e.target.name]: null }));
+  };
+
+  const validate = () => {
+    const newErrors = {};
+
+    if (!formData.name.trim()) newErrors.name = "El nombre es obligatorio";
+    if (!formData.email.trim()) newErrors.email = "El correo es obligatorio";
+    else if (!formData.email.includes("@"))
+      newErrors.email = "El correo debe contener @";
+    if (!formData.message.trim()) newErrors.message = "El mensaje es obligatorio";
+
+    setErrors(newErrors);
+
+    return Object.keys(newErrors).length === 0;
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    if (!validate()) return; // Si no valida, no sigue
 
     emailjs
       .send("service_5y234eg", "template_q5v70is", {
@@ -29,7 +49,8 @@ export default function ContactForm() {
       .then(
         (response) => {
           setStatus("Mensaje enviado correctamente!");
-          setFormData({ name: "", email: "", message: "" }); // Limpiar formulario
+          setFormData({ name: "", email: "", message: "" });
+          setErrors({});
         },
         (error) => {
           setStatus("Error al enviar el mensaje.");
@@ -53,6 +74,7 @@ export default function ContactForm() {
           onChange={handleChange}
           required
         />
+        {errors.name && <p className={styles.errorMsg}>{errors.name}</p>}
       </div>
 
       <div className={styles.formGroup}>
@@ -66,6 +88,7 @@ export default function ContactForm() {
           onChange={handleChange}
           required
         />
+        {errors.email && <p className={styles.errorMsg}>{errors.email}</p>}
       </div>
 
       <div className={styles.formGroup}>
@@ -78,16 +101,17 @@ export default function ContactForm() {
           onChange={handleChange}
           required
         />
+        {errors.message && <p className={styles.errorMsg}>{errors.message}</p>}
       </div>
 
-      <button className={styles.submitBtn} type="submit">Enviar</button>
+      <button className={styles.submitBtn} type="submit">
+        Enviar
+      </button>
 
       {status && (
         <p
           className={
-            status.includes("correctamente")
-              ? styles.successMsg
-              : styles.errorMsg
+            status.includes("correctamente") ? styles.successMsg : styles.errorMsg
           }
           role="alert"
         >
