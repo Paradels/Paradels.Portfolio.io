@@ -1,8 +1,8 @@
 import perfil from "../assets/img/perfil.webp";
-import { FaLinkedin, FaGithub } from 'react-icons/fa';
+import { FaLinkedin, FaGithub } from "react-icons/fa";
 import styles from "../styles/Header.module.css";
 
-function Header() {
+function Header({ scrollTo }) {
   return (
     <header className={styles.header}>
       <div className={styles.container}>
@@ -32,6 +32,13 @@ function Header() {
           </div>
         </div>
       </div>
+
+      <nav className={styles.nav}>
+        <button onClick={() => scrollTo("aboutMe")}>Sobre mí</button>
+        <button onClick={() => scrollTo("skills")}>Habilidades</button>
+        <button onClick={() => scrollTo("exp")}>Experiencia</button>
+        <button onClick={() => scrollTo("company")}>Empresa</button>
+      </nav>
     </header>
   );
 }
