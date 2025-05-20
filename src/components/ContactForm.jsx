@@ -1,6 +1,8 @@
-import { useState } from "react";
-import emailjs from "emailjs-com";
+import React, { useState } from "react";
+import emailjs from "@emailjs/browser";
 import styles from "../styles/ContactForm.module.css";
+
+emailjs.init("11Rk_4Bc_rsvtacD2"); // Tu Public Key
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -8,9 +10,7 @@ export default function ContactForm() {
     email: "",
     message: "",
   });
-
-  const [enviado, setEnviado] = useState(false);
-  const [error, setError] = useState(false);
+  const [status, setStatus] = useState(null);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -20,32 +20,32 @@ export default function ContactForm() {
     e.preventDefault();
 
     emailjs
-      .send(
-        "TU_SERVICE_ID",    // ← Reemplaza con tu Service ID
-        "TU_TEMPLATE_ID",   // ← Reemplaza con tu Template ID
-        formData,
-        "TU_PUBLIC_KEY"     // ← Reemplaza con tu Public Key
-      )
-      .then(() => {
-        setEnviado(true);
-        setFormData({ name: "", email: "", message: "" });
-        setError(false);
+      .send("service_5y234eg", "template_q5v70is", {
+        title: "Mensaje desde formulario",
+        name: formData.name,
+        email: formData.email,
+        message: formData.message,
       })
-      .catch((err) => {
-        console.error("Error al enviar el mensaje:", err);
-        setError(true);
-      });
+      .then(
+        (response) => {
+          setStatus("Mensaje enviado correctamente!");
+          setFormData({ name: "", email: "", message: "" }); // Limpiar formulario
+        },
+        (error) => {
+          setStatus("Error al enviar el mensaje.");
+          console.error("Error:", error);
+        }
+      );
   };
 
   return (
-    <section className={styles.contactForm}>
+    <form className={styles.formContainer} onSubmit={handleSubmit} noValidate>
       <h2>Contacto</h2>
 
-      {enviado && <p className={styles.confirm}>¡Gracias! Te responderé pronto.</p>}
-      {error && <p className={styles.error}>Ocurrió un error. Intenta nuevamente más tarde.</p>}
-
-      <form onSubmit={handleSubmit}>
+      <div className={styles.formGroup}>
+        <label htmlFor="name">Nombre</label>
         <input
+          id="name"
           type="text"
           name="name"
           placeholder="Tu nombre"
@@ -53,23 +53,47 @@ export default function ContactForm() {
           onChange={handleChange}
           required
         />
+      </div>
+
+      <div className={styles.formGroup}>
+        <label htmlFor="email">Email</label>
         <input
+          id="email"
           type="email"
           name="email"
-          placeholder="Tu correo"
+          placeholder="Tu email"
           value={formData.email}
           onChange={handleChange}
           required
         />
+      </div>
+
+      <div className={styles.formGroup}>
+        <label htmlFor="message">Mensaje</label>
         <textarea
+          id="message"
           name="message"
           placeholder="Tu mensaje"
           value={formData.message}
           onChange={handleChange}
           required
         />
-        <button type="submit">Enviar</button>
-      </form>
-    </section>
+      </div>
+
+      <button className={styles.submitBtn} type="submit">Enviar</button>
+
+      {status && (
+        <p
+          className={
+            status.includes("correctamente")
+              ? styles.successMsg
+              : styles.errorMsg
+          }
+          role="alert"
+        >
+          {status}
+        </p>
+      )}
+    </form>
   );
 }
