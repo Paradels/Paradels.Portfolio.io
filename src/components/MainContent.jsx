@@ -14,7 +14,7 @@ export default function MainContent({ refs }) {
       {/* SOBRE MÍ */}
       <section ref={refs.aboutMe} className={styles.aboutMe}>
         <h2>Sobre mí</h2>
-        <p>
+        <p className={styles.companyMain}>
           Soy un Junior Web Developer apasionado por crear aplicaciones
           modernas y eficientes. Me especializo en tecnologías frontend y backend,
           con ganas de aprender y crecer profesionalmente.
@@ -26,7 +26,7 @@ export default function MainContent({ refs }) {
 
         {mostrarBio && (
           <div className={styles.bioExtra}>
-            <p>
+            <p className={styles.companyMain}>
               Durante mi formación he trabajado con diversos lenguajes y frameworks,
               aprendiendo metodologías ágiles, control de versiones con Git, pruebas
               unitarias, y despliegue de aplicaciones. Además, tengo experiencia en trabajo
