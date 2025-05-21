@@ -68,7 +68,7 @@ export default function MainContent({ refs }) {
       {/* EMPRESA */}
       <section ref={refs.company} className={styles.company}>
         <h2>Mi Empresa de Prácticas</h2>
-        <p>
+       <p className={styles.companyMain}>
           Durante mis prácticas profesionales desarrollé una página web completa donde
           empleé Node.js y Express para el backend, incluyendo autenticación y validación 
           por token de email. Utilicé Docker para la contenerización y MongoDB como base 
